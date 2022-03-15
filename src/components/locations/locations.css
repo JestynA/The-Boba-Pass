@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
+
+
+#vendorsComponent{
+    font-family: 'Fredoka', sans-serif;
+    margin-top: 6vh;
+    width: 100%;
+    color: Black;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    gap: 7vh;
+}
+
+#vendorsRow{
+    padding: 3vh;
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    justify-content: center;
+    gap: 15vw;
+    box-shadow: 0px 0px 13px;
+ 
+}
+
+#vendorPictures{
+    width: 650px;
+    height:500px;
+}
+
+.slidePics{
+    max-width: 100%;
+    min-width: 100%;
+}
+
+#vendorsList{
+    height:300px;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider{
+   position: relative;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+}
+
+.vendorPictures {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+
+.slider{
+    border-radius: 40px;
+    border-color: rgb(209, 209, 209);
+    border-style: solid;
+}
+
+.img{
+
+    max-height: 70%;
+    border-radius: 30px;
+    object-fit: scale-down;
+}
+
+.rightArrow{
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    font-size: 3rem;
+    color: black;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.leftArrow{
+position: absolute;
+top: 50%;
+left: 32px;
+font-size: 3rem;
+color: black;
+z-index: 10;
+cursor: pointer;
+user-select: none;
+}
+
+.slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+}
+
+#partners{
+    font-size: 6vh;
+}
+
+h3{
+    color: rgb(136, 136, 136)
+}
+
+h2{
+    color: rgb(61, 61, 61)
+}
+
+a:visited{
+    color: rgb(226, 177, 132)
+}
