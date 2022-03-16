@@ -17,6 +17,7 @@ render(){
            <ul id='navBar'>
                 <li ><img src={logo} type='jpg' id='logo'></img></li>
                 <div id='accountActions'>
+
                 <li><button className='button' id='cartButton'><img className='buttonImg' src={cartIcon}/></button></li>
                 <li><button className='button' id='notificationButton'><img className='buttonImg' src={notiIcon}/></button></li>   
                 <li><button className='button' id='settingsButton'><img className='buttonImg' src={settingIcon}/></button></li>  

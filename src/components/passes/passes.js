@@ -21,7 +21,7 @@ class passes extends Component{
                          
                         </h2>
                         <h5 > Starting at only $59.99/month</h5>
-                        <button id='planButton'>Choose plan</button>
+                        <a href='/gateway'><button id='planButton'>Choose plan</button></a>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@ class passes extends Component{
                    <h5>
                             Starting at only $39.99/month
                         </h5>
-                   <button id='planButton'>Choose plan</button>
+                        <a href='/gateway'><button id='planButton'>Choose plan</button></a>
                     </div>
                     {/* <img src={fiendGif} alt='Unable to load gif'></img> */}
                     <button id='bobaButton'> 10 drinks / mo</button>
@@ -55,7 +55,7 @@ class passes extends Component{
                    </h2> <h5>
                             Starting at only $19.99/month
                         </h5>
-                   <button id='planButton'>Choose plan</button>
+                        <a href='/gateway'><button id='planButton'>Choose plan</button></a>
                     </div>                  
                 </div>
             </div>

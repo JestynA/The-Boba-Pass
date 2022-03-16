@@ -12,6 +12,7 @@ render(){
            <ul id='navBar'>
                 <li ><img src={logo} type='jpg' id='logo'></img></li>
                 <div id='accountActions'>
+                <a href='/home'><li><button className='button' id='cartButton'> TEST </button></li></a>
                 <a href='/gateway'><li><button id='loginButton'>Log in</button></li></a>
                 <a href='/gateway'><li><button id='signupButton'>Sign up</button></li></a>  
                 </div>
