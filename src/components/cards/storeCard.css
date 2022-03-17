@@ -1,0 +1,17 @@
+#storeCard{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#image{
+    height: 60%;
+}
+
+#storeData{
+    height: 40%;
+
+    display: flex;
+    justify-content: space-between;
+
+}

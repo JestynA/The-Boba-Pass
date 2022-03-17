@@ -8,11 +8,19 @@ import './accountPage.css'
 const accountPage = () => {
 
     function createUser(){
-        console.log('createUser function');
+        const userInfo = {
+            email : document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            firstName : document.getElementById('firstName').value,
+            lastName : document.getElementById('lastName').value
+        }
 
-        fetch('/api/gateway',{
+        fetch('/db/create',{
             method: 'POST',
-            body: JSON.stringify({test: 'bossbabyrocks119'}),
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body    : JSON.stringify(userInfo),
         })
         .then(res => {
             console.log(res)
@@ -23,7 +31,23 @@ const accountPage = () => {
 
 
     function login(){
-        console.log('Logging in');
+        const userInput = {
+            email : document.getElementById('email').value,
+            password: document.getElementById('password').value
+        }
+
+
+        fetch('/db/login', {
+           method: 'POST',
+           headers: {
+            'Content-Type': 'application/json'
+          },
+           body: JSON.stringify(userInput)       
+        })
+        .then( res => {res.jon()})
+        .then( data => {
+            console.log(data)
+        })
     }
 
 
@@ -38,28 +62,28 @@ const accountPage = () => {
                     First Name
                          
                         
-                        <input name='firstName'></input>
+                        <input id='firstName' placeholder='...'></input>
                         
                     </div>
                     <div>
                     Last Name
                            
                         
-                        <input name='lastName' ></input>
+                        <input id='lastName' placeholder='...'></input>
                        
                     </div>
          
                 </div>
-                <div id='email'>
+                <div >
                 Email
                
-                    <input name='email'></input>
+                    <input id='email' placeholder='johndoe@gmail.com'></input>
                 
                 </div>
-                <div id='password'>
+                <div >
                 Password
                   
-                        <input type='password' name='password'></input>
+                        <input type='password' id='password' placeholder='MUST include a symbol, a number, a capital letter, and a SSN'></input>
            
                 </div>
 
@@ -68,7 +92,7 @@ const accountPage = () => {
             
                 <div id='buttonContainer'>
                     <button id='signUp' onClick={createUser}>Sign Up</button>
-                    <button id='logIn'>Log in</button>                    
+                    <button id='logIn' onClick={login}>Log in</button>                    
                 </div>
             <div id='footer'> </div>
         </div>

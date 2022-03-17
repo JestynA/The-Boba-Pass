@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Switch, Route, Routes } from 'react-router-dom
 import VisitorHome from './pages/visitorHomePage/visitorHomePage'
 import CustomerHome from './pages/customerHomepage/customerHomepage'
 import AccountPage from './pages/accountPage/accountPage';
+import CartPage from './pages/cartPage/cartPage';
+
+import store from './store'
 
 const App = () => (
 
@@ -17,7 +20,8 @@ const App = () => (
             {/* Change to home element */}
         <Route path='/' element={<VisitorHome/>}/>
         <Route path='/gateway' element={<AccountPage/>}/> 
-        <Route path='/home' element={<CustomerHome/>}/>
+        <Route path='/home' element={<CustomerHome/>} store={store}/>
+        <Route path='/cart' element={<CartPage/>}/>
         
 
         </Routes>

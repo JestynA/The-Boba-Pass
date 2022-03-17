@@ -72,24 +72,32 @@
 
 .rightArrow{
     position: absolute;
-    top: 50%;
+    top: 45%;
     right: 32px;
     font-size: 3rem;
-    color: black;
+    color: rgb(161, 161, 161);
     z-index: 10;
     cursor: pointer;
     user-select: none;
 }
 
+.rightArrow:hover{
+    color: rgb(107, 107, 107);
+}
+
 .leftArrow{
 position: absolute;
-top: 50%;
+top: 45%;
 left: 32px;
 font-size: 3rem;
-color: black;
+color: rgb(161, 161, 161);
 z-index: 10;
 cursor: pointer;
 user-select: none;
+}
+
+.leftArrow:hover{
+    color: rgb(107, 107, 107);
 }
 
 .slide {
@@ -117,4 +125,8 @@ h2{
 
 a:visited{
     color: rgb(226, 177, 132)
+}
+
+a:hover{
+    color: rgb(202, 146, 93);
 }

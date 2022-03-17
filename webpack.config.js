@@ -31,27 +31,18 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
     static: {
-      directory: path.resolve(__dirname, '/build'),
-      publicPath: '/build'
+      directory: path.resolve(__dirname, '/src'),
     },
     proxy : {
-      '/api/**' : {
-      target: 'https://localhost:3000/',
-      secure : false,
-      }
-    },        setup: function(app) {
-      app.use(bodyParser.json());
-      app.use(bodyParser.urlencoded({
-          extended: true
-      }));
-
-      app.post(/^\/(URL1|URL2|URL3)\//, function(req, res) {
-          var serviceCallResponse = request('POST', 'your app server url here' + req.originalUrl, {
-              json:req.body
-          });
-          res.send(serviceCallResponse.getBody('utf8'));
-      });
-  },
+      '/db' : 'http://localhost:3000'
+      
+      // {
+      // target: 'https://localhost:3000',
+      // //router: () => 'https://localhost:8080',
+      // secure : false,
+      // //changeOrigin: true 
+      // }
+    },
 
   },
 

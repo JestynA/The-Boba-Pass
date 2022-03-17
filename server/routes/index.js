@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 
-const userController = require('./../controller');
+const userController = require('./../userController');
 const { restart } = require('nodemon');
 
 const app = express();
@@ -10,36 +10,39 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 app.use(express.json());
 
-// display index.html on root route
-app.get('/',(req, res) => {
-    return res.status(200).sendFile(path.join(__dirname,'../../src/index.html'))
+
+
+// user handling
+
+app.post('/db/create', userController.createUser, (req, res) => {
+  
+})
+
+app.post('/db/login', userController.authorize, (req, res) => {
+  res.redirect('/home');
 })
 
 
+
+// display index.html on root route
+app.get('/',(req, res) => {
+
+    return res.status(200).sendFile(path.join(__dirname,'../../src/index.html`'))
+})
 
 app.get('/styles.css',(req, res) => {
   return res.status(200).sendFile(path.join(__dirname,'../../src/styles.css'))
 })
 
-app.get('/gateway',(req, res) => {
-  return res.status(200).sendFile(path.join(__dirname,'../../src/pages/accountPage'))
-})
 
 
 
 
-// signup/login
-app.post('/', (req, res) => {
-  const test = req.body;
-
-  console.log(test)
-  return res.status(200);
-})
 
 // invalid link handler
 app.get('*', (req, res) => {
   console.log('invalid link');
-    res.status(405).send();
+    res.status(404).send();
 })
 
 app.use((err, req, res, next) => {

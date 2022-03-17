@@ -1,4 +1,8 @@
 import React from 'react';
+import StoreContainer from '../../components/containers/storeContainer';
+
+
+import storeContainer from '../../components/containers/storeContainer';
 
 
 
@@ -20,7 +24,7 @@ const login = () => {
             </div>
                 
             <div id='body'>
-
+            <StoreContainer/>
             </div>
         </div>
     );

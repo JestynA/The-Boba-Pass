@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Component } from 'react';
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
 
@@ -37,10 +37,6 @@ const locations = () => {
     const [current, setCurrent] = useState(0)
     const length = SliderData.length;
 
-    document.addEventListener('DOMContentLoaded', (event)=> {
-        setInterval(nextSlide(),5000)
-    })
-
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)
@@ -55,6 +51,12 @@ const locations = () => {
     }
 
 
+    // automatically traverse slide show, NOT PROPERLY WORKING EPILEPSEY WARNING
+    // useEffect(() => {
+    //     setInterval(() => {
+    //         nextSlide();
+    // },4000)
+    // },[current])
     
         return(
             <div id='vendorsComponent'>

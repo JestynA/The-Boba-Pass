@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "mode" : "development",
+  "mode": "development",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot --progress --color \" \"nodemon server/routes/index.js\""
-    ,
+    "dev": "concurrently \"webpack-dev-server --open --hot --progress --color \" \"nodemon server/routes/index.js\"",
     "start": "nodemon server/routes/index.js",
     "build": "webpack"
   },
@@ -19,6 +18,7 @@
     "@babel/preset-react": "^7.16.7",
     "assert": "^2.0.0",
     "babel-loader": "^8.2.3",
+    "concurrently": "^7.0.0",
     "css-loader": "^6.7.1",
     "dgram": "^1.0.1",
     "dns": "^0.2.2",
@@ -34,6 +34,7 @@
     "react-image-gallery": "^1.2.7",
     "react-player": "^2.9.0",
     "react-router-dom": "^6.2.2",
+    "redux": "^4.1.2",
     "stream-browserify": "^3.0.0",
     "sync-request": "^6.1.0",
     "url": "^0.11.0",

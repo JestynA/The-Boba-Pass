@@ -37,8 +37,10 @@
 
 .button{
     height: 60px;
-    width: 6vw;
+    width: 65px;
     margin-right: .7vh;
+
+    
 
     font-family: 'Fredoka', sans-serif;
     font-weight: bold;
@@ -61,3 +63,5 @@
     width: 100%;
     max-width: 60px;
 }
+
+
