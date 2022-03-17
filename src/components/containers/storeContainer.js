@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { render } from '../../../server/routes';
+//import { render } from '../../../server/routes';
 import * as actions from './../reducers/actions'
 
 import StoreCreator from '../creators/storeCreator';
+
+import './storeContainer.css'
 
 const mapStateToProps = state => {
     return({
@@ -14,7 +16,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addStore : (name) => dispatch(actions.addStoreCreator(name)),
+        addStore : (storeInfo) => dispatch(actions.addStoreCreator(storeInfo)),
         addDrink : (name, desc) => dispatch(actions.addDrinkCreator(name, desc)),
         deleteStore : (name) => dispatch(actions.deleteStoreCreator(name)),
         deleteDrink : (name) => dispatch(actions.deleteDrinkCreator(name))
@@ -28,8 +30,7 @@ constructor(props){
 
     render(){
         return (
-        <div>
-            <h1>Stores</h1> 
+        <div id='storeContainer'>
             
             <StoreCreator addStore={this.props.addStore} deleteStore={this.props.deleteStore} />
         </div>
@@ -38,4 +39,4 @@ constructor(props){
    
 };
 
-export default connect(mapDispatchToProps,mapDispatchToProps)(storeContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(storeContainer);

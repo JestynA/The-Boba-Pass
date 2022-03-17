@@ -1,8 +1,9 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import StoreContainer from '../../components/containers/storeContainer';
+import store from '../../store';
 
 
-import storeContainer from '../../components/containers/storeContainer';
 
 
 
@@ -24,7 +25,10 @@ const login = () => {
             </div>
                 
             <div id='body'>
-            <StoreContainer/>
+            <Provider store={store}>
+
+            </Provider>
+            
             </div>
         </div>
     );

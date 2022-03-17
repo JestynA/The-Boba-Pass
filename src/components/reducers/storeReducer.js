@@ -1,7 +1,7 @@
-import { bindActionCreators } from "redux";
+// import { bindActionCreators } from "redux";
 import * as types from './actionTypes'
 
-import db from './../../../server/models/database';
+// import db from './../../../server/models/database'
 
 const initialState = {
     totalStores: 0,
@@ -12,11 +12,12 @@ const initialState = {
 // storeName: name
 // storeDesc: desc
 // drinks: {milktea:desc}
+// address: {city: Chino Hills, address: 360 noscope ave, zip: 91709}
 
 const storeReducer = (state = initialState, action) => {
-    switch(action.types){
+    switch(action.type){
         case types.ADD_STORE:
-
+            
         
         case types.ADD_DRINK:
 
@@ -27,6 +28,8 @@ const storeReducer = (state = initialState, action) => {
 
 
         case types.DELETE_DRINK:
+
+        default: return state;
     }
 }
 

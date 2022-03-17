@@ -21,6 +21,9 @@ render(){
            </Link>
                 
                 <div id='accountActions'>
+                <Link to='/housekeeping'>
+                    <li><button className='button' id='housekeepingButton'>+</button></li>
+                </Link>
                 <Link to='/cart'>
                     <li><button className='button' id='cartButton'><img className='buttonImg' src={cartIcon}/></button></li>
                 </Link>

@@ -1,9 +1,9 @@
 import * as types from './actionTypes'
 
-export const addStoreCreator = (name) => {
+export const addStoreCreator = (storeInfo) => {
     return({
         type: types.ADD_STORE,
-        payload: name
+        payload: storeInfo
     })
 }
 
