@@ -2,27 +2,15 @@ const path = require('path');
 const express = require('express');
 
 const userController = require('./../userController');
+const storeController = require('./../storeController');
 const { restart } = require('nodemon');
+// const { restart } = require('nodemon');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 app.use(express.json());
-
-
-
-// user handling
-
-app.post('/db/create', userController.createUser, (req, res) => {
-  
-})
-
-app.post('/db/login', userController.authorize, (req, res) => {
-  res.redirect('/home');
-})
-
-
 
 // display index.html on root route
 app.get('/',(req, res) => {
@@ -35,6 +23,37 @@ app.get('/styles.css',(req, res) => {
 })
 
 
+// user handling
+app.post('/db/create', userController.createUser, (req, res) => {
+  
+})
+
+app.post('/db/login', userController.authorize, (req, res) => {
+  res.redirect('/home');
+})
+
+
+
+
+
+// store handling
+app.post('/db/createStore', storeController.addStore, (req, res) => {
+  return res.status(200).send();
+})
+
+app.post('/db/deleteStore', storeController.deleteStore, (req, res) => {
+  return res.status(200).send();
+})
+
+app.get('/db/getStores', storeController.getStores, (req, res) => {
+  return res.status(200).json(res.locals.data.rows)
+})
+
+
+
+
+
+
 
 
 
@@ -45,6 +64,8 @@ app.get('*', (req, res) => {
     res.status(404).send();
 })
 
+
+// global middleware error handling
 app.use((err, req, res, next) => {
     const defaultErr = {
       log: 'Express error handler caught unknown middleware error',

@@ -17,7 +17,14 @@ const initialState = {
 const storeReducer = (state = initialState, action) => {
     switch(action.type){
         case types.ADD_STORE:
-            
+            fetch('/db/createStore',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                  },
+                body : JSON.stringify(action.payload)
+            })
+            .then(res => console.log(res))
         
         case types.ADD_DRINK:
 
@@ -25,6 +32,16 @@ const storeReducer = (state = initialState, action) => {
 
 
         case types.DELETE_STORE:
+            console.log('indisde reducer')
+            const delInfo = {address : action.payload}
+            fetch('/db/deleteStore',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                  },
+                body: JSON.stringify(delInfo)
+            })
+            .then( res => console.log(res))
 
 
         case types.DELETE_DRINK:

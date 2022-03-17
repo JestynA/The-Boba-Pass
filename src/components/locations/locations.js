@@ -84,9 +84,9 @@ const locations = () => {
 
                     </div>
                     <div id='vendorsList'>
-                            <h1>The Boba Pass offers top tier boba </h1>
-                            <h2>Only the best of the best, we've hand selected a handful of shops to provide our customers with the best boba there is to offer! </h2>
-                            <h3>Missing your favorite boba shop? <a href='/'>Submit a suggestion!</a></h3>
+                            <h1 id='title'>The Boba Pass offers top tier boba </h1>
+                            <h2 id='desc'>Only the best of the best, we've hand selected a handful of shops to provide our customers with the best boba there is to offer! </h2>
+                            <h3 id='sugg'>Missing your favorite boba shop? <a href='/'>Submit a suggestion!</a></h3>
                     </div>
 
                 </div>

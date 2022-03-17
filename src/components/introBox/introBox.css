@@ -6,7 +6,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 10vw;
+    gap: 3vw;
     align-items: center;
 
 }
@@ -34,27 +34,39 @@
     width: 700px;
     border-radius: 100px;
     margin-left: 90px;
+    /* min-width: 50vw;
+    max-width: 500px; */
 
+    min-width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: rgb(226, 177, 132);
     border-style: solid;
-    border-color: rgb(211, 211, 211);
+    border-color: rgb(77, 77, 77);
 }
 
 h1{
-    font-size: 60px;
+    font-size: 4vh !important;
     text-align: center;
+    height: 5vh;
     
     
 }
 
-p{
-    font-weight:bold;
-    font-size: 20px;
-    display: flex;
-    align-self: center;
-    text-align: center;
-    width: 400px;
+#desc{
+    color: black;
+    width: 70%;
 }
+
+p{
+    font-size: 90px;
+    font-weight:bold;
+    width: 80%;
+    
+
+
+    
+}
+

@@ -3,17 +3,37 @@ import { connect } from 'react-redux';
 import * as actions from '../reducers/actionTypes'
 import { Link } from 'react-router-dom';
 
+import './storeCard.css'
+import Tastea from './../../../assets/pics/locations/storePics/Tastea.png'
+import bobaFiend from './../../../assets/pics/locations/storePics/BobaFiend.jpg'
+import dingTea from './../../../assets/pics/locations/storePics/dingTea.jpg'
+import roastingWater from './../../../assets/pics/locations/storePics/RoastingWater.jpg'
+import tigerSugar from './../../../assets/pics/locations/storePics/Tiger Sugar.jpg'
+
+const vendorPics = {
+'Tastea' : Tastea,
+'Tiger Sugar' : tigerSugar,
+'Boba Fiend' : bobaFiend,
+'Ding Tea' : dingTea,
+'Roasting Water' : roastingWater
+
+}
+
 const storeCard = (props) => {
     return (
         <div id='storeCard'>
-        <Link to={'/'+props.storeName}>
-            <div id='image'>
-                {/* <image src={storeImage}></image> */}
-            </div>
+        <Link to={'/vendor/'+props.storeName+'/'+props.id}>
+            
+            <img id='image' src={vendorPics[props.storeName]}></img> 
+            
             <div id='storeData'>
-                <h2>{props.storeName}</h2>
-                <p>Time: 5 mins <br></br> Distance: 1 mi.</p>
-
+                    <div>
+                        <h2 id='storeName'>{props.storeName}</h2>
+                    </div>
+                    <div id='details'>
+                        <p>Time: 5 mins <br></br> Distance: 1 mi.</p>
+                    </div>
+                
             </div> 
         </Link>
 

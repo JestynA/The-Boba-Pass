@@ -21,8 +21,28 @@ const storeCreator = (props) => {
                         city : document.getElementById('city').value,
                         zip : document.getElementById('zip').value
                     }
+
+                    let full = true;
+                    let arr = Object.values(storeInfo)
+                    for(const el of arr){
+                        if(el==='') full=false;
+                    }
+
+                    // check for all inputs before submitting info 
+                    if(full){
+                        props.addStore(storeInfo)
+                    } else {
+                        console.log('Missing inputs')
+                    }
                     console.log(storeInfo);
-                    props.addStore(storeInfo)}}>Add store</button>
+                    }}>Add store</button>
+                </form>
+            </div>
+            <div>
+                Delete store
+                <form onSubmit={(e) => e.preventDefault()}>
+                    <input id='delAddress' placeholder='Address'></input>
+                    <button onClick={() => {props.deleteStore(document.getElementById('delAddress').value)}}>Delete Store</button>
                 </form>
             </div>
         </div>

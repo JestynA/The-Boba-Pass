@@ -1,17 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
+
 #storeCard{
+    font-family: 'Fredoka', sans-serif;
     display: flex;
     flex-direction: column;
     align-content: center;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    border-radius: 10px;
+    width: 20vw;
+    gap: 0;
 }
 
 #image{
-    height: 60%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+
 }
 
 #storeData{
-    height: 40%;
+    height: 10vh;
 
+
+box-shadow:  0px -10px 5px rgb(131, 131, 131);
     display: flex;
     justify-content: space-between;
+    align-content: top;
+    background-color: rgb(184, 184, 184);
+    text-decoration: none !important;
+    border-radius: 5px;
 
 }
+
+#storeData:hover{
+    color: rgb(61, 61, 61);
+    text-decoration: none;
+}
+
+p{
+    color: rgb(61, 61, 61);
+    text-decoration: none;
+    width: 100%;
+    text-align: right;
+    right: 100%;
+    margin: 3px;
+    font-size: 1vh;
+}
+
+
+a{
+    color: rgb(61, 61, 61);
+    text-decoration: none;
+}
+
+#storeName{
+       color: rgb(61, 61, 61);
+    text-decoration: none;
+    font-size: 3vh;
+    margin: 3px;
+    width: 10vw;
+    font-weight: bold;
+}
+
+#details{
+    vertical-align: top;
+    width: 10vw;
+}
+

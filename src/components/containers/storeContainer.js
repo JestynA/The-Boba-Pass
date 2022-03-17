@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     return {
         addStore : (storeInfo) => dispatch(actions.addStoreCreator(storeInfo)),
         addDrink : (name, desc) => dispatch(actions.addDrinkCreator(name, desc)),
-        deleteStore : (name) => dispatch(actions.deleteStoreCreator(name)),
+        deleteStore : (address) => dispatch(actions.deleteStoreCreator(address)),
         deleteDrink : (name) => dispatch(actions.deleteDrinkCreator(name))
     }
 }

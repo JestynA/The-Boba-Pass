@@ -19,7 +19,6 @@ const home = () => {
         {/* <a href='/login'> <button>TEst</button></a> */}
         <Passes/>
         <Locations/>
-
         </div>
     );
 

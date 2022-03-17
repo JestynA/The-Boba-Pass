@@ -17,10 +17,10 @@ export const addDrinkCreator = (name, description) => {
 }
 
 
-export const deleteStoreCreator = (name) => {
+export const deleteStoreCreator = (address) => {
     return({
         type: types.DELETE_STORE,
-        payload: name
+        payload: address
     })
 }
 

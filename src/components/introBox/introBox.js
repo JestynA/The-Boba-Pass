@@ -22,7 +22,7 @@ class introBox extends Component{
 
                 <div id='welcomeText'>
                 <h1>The Boba Pass</h1> 
-                <p> The one pass that really matters for serious boba drinkers. Quench your boba thirst as frequent as you wish with The Boba Pass!</p>
+                <h3 id='desc'> The one pass that really matters for serious boba drinkers. Quench your boba thirst as frequent as you wish with The Boba Pass!</h3>
                 </div>
             </div>
         )
