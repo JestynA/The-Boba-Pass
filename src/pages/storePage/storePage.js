@@ -4,6 +4,9 @@ import CustomerNavBar from './../../components/navbar/customerNavBar'
 
 import './storePage.css'
 
+
+import DrinkDisplay from '../../components/displays/drinkDisplay';
+
 import Tastea from './../../../assets/pics/locations/storePics/Tastea.png'
 import bobaFiend from './../../../assets/pics/locations/storePics/BobaFiend.jpg'
 import dingTea from './../../../assets/pics/locations/storePics/dingTea.jpg'
@@ -26,6 +29,9 @@ const storePage = () => {
         drinks: null,
     })
 
+    // let drinkList;
+    // const drinkListEl = [];
+
     useEffect(() => {
         
 
@@ -38,12 +44,19 @@ const storePage = () => {
         })
         .then(data => data.json())
         .then(data => {
-            // console.log(data)
             setState({drinks: data})
 
         })
 
+        //console.log(state.drinks)
+  
+
     },[])
+
+        // for(const el in state.drinks){
+        //         console.log(state.drinks[el])
+        //         drinkListEl.push(<DrinkCard itemName={state.drinks[el].item_name} itemDesc={datstate.drinksa[el].description} price={state.drinks[el].item_price} key={el}/>)
+        //     }
 
     return (
         <div id='storePage'>
@@ -58,7 +71,7 @@ const storePage = () => {
             </div>
             
             <div id='drinksBox'>
-
+                <DrinkDisplay drinkList={state.drinks}/>
             </div>
         </div>
     );

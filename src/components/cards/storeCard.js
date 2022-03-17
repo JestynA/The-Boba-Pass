@@ -29,7 +29,11 @@ const storeCard = (props) => {
             <div id='storeData'>
                     <div>
                         <h2 id='storeName'>{props.storeName}</h2>
+                        <p id='storeAddress'>{props.address}<br></br>{props.city} {props.zip}</p>
                     </div>
+                    
+                        
+                    
                     <div id='details'>
                         <p>Time: 5 mins <br></br> Distance: 1 mi.</p>
                     </div>

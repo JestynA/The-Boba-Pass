@@ -11,7 +11,7 @@ const storeDisplay = (props) => {
     const storeListEl = []
    const list = JSON.parse(JSON.stringify(props.storeList));
    for(const el in list){
-       storeListEl.push(<StoreCard storeName={list[el].vendor_name} storeDesc={list[el].storeDesc} key={el} id={list[el].vendor_id}/>)
+       storeListEl.push(<StoreCard storeName={list[el].vendor_name} storeDesc={list[el].description} address={list[el].address} city={list[el].city} zip={list[el].zip} id={list[el].vendor_id} key={el}/>)
    }
 //    console.log(list[0])
     

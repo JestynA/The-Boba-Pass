@@ -32,7 +32,7 @@ render(){
                     <li><button className='button' id='notificationButton'><img className='buttonImg' src={notiIcon}/></button></li> 
                 </Link>
 
-                <Link to='/settings'> 
+                <Link to='/gateway'> 
                     <li><button className='button' id='settingsButton'><img className='buttonImg' src={settingIcon}/></button></li>  
                 </Link>
                   

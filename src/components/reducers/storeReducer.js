@@ -80,7 +80,7 @@ let drinkList;
 
 
         case types.DELETE_DRINK:
-            console.log(action.payload)
+            //console.log(action.payload)
             fetch('/db/deleteDrink',{
                 method: 'POST',
                 headers: {

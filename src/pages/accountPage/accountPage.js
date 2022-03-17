@@ -44,10 +44,10 @@ const accountPage = () => {
           },
            body: JSON.stringify(userInput)       
         })
-        .then( res => {res.jon()})
-        .then( data => {
-            console.log(data)
-        })
+        // .then( res => {res.json()})
+        // .then( data => {
+        //     console.log(data)
+        // })
     }
 
 

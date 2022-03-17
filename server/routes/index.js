@@ -29,7 +29,7 @@ app.post('/db/create', userController.createUser, (req, res) => {
 })
 
 app.post('/db/login', userController.authorize, (req, res) => {
-  res.redirect('/home');
+  res.redirect('http://localhost:8080/home');
 })
 
 

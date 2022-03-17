@@ -1,6 +1,9 @@
 #header{
     margin-top: 5vh;
 height: 10vh;
+display: flex;
+padding: 5vh;
+justify-content: space-between;
 }
 
 
@@ -14,3 +17,18 @@ height: 10vh;
     gap: 10px;
     box-shadow: 0px 0px 10px rgb(97, 97, 97);
 }
+
+#currOrderBox{
+    background-color: white;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    width: 45%;
+}
+
+#membershipStatusBox{
+    background-color: white;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    width: 45%;
+}
+
