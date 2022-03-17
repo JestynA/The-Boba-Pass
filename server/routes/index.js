@@ -52,7 +52,18 @@ app.get('/db/getStores', storeController.getStores, (req, res) => {
 
 
 
+// drink handling
+app.post('/db/addDrink', storeController.addDrink, (req, res) => {
+  return res.status(200).send();
+})
 
+app.post('/db/deleteDrink', storeController.deleteDrink, (req, res) => {
+  return res.status(200).send();
+})
+
+app.post('/db/getDrinks', storeController.getDrinks, (req, res) => {
+  return res.status(200).json(res.locals.drinks.rows);
+})
 
 
 

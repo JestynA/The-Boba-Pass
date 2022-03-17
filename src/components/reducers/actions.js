@@ -8,11 +8,10 @@ export const addStoreCreator = (storeInfo) => {
 }
 
 
-export const addDrinkCreator = (name, description) => {
+export const addDrinkCreator = (drinkInfo) => {
     return({
         type: types.ADD_DRINK,
-        namePayload: name,
-        descPayload: description
+        payload: drinkInfo
     })
 }
 
@@ -25,9 +24,9 @@ export const deleteStoreCreator = (address) => {
 }
 
 
-export const deleteDrinkCreator = (name) => {
+export const deleteDrinkCreator = (delDrinkInfo) => {
     return ({
         type: types.DELETE_DRINK,
-        payload: name
+        payload: delDrinkInfo
     })
 }

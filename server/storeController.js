@@ -13,6 +13,22 @@ storeController.getStores = async (req, res, next) => {
     }
 }
 
+
+storeController.getDrinks = async (req, res, next) => {
+    console.log(req.body.vendorId)
+    try{
+         const queryString = 'SELECT * FROM menu_items WHERE (vendor_id =' + req.body.vendorId + ');'; 
+
+         res.locals.drinks = await db.query(queryString);
+         
+
+         next();
+    }
+    catch (err){
+        next(err)
+    }
+}
+
 storeController.addStore = (req, res, next) => {
     try{
         const queryString = 'INSERT INTO vendors (vendor_name,city,address,zip,description) VALUES (\''+ req.body.name + '\',\''+ req.body.city + '\',\'' + req.body.address + '\',\'' + req.body.zip + '\',\'' + req.body.desc + '\');'
@@ -26,7 +42,14 @@ storeController.addStore = (req, res, next) => {
 
 
 storeController.addDrink = (req, res, next) => {
+try{
+    const queryString = 'INSERT INTO menu_items (vendor_id,item_name, description, item_price) VALUES ('+ req.body.vendor_id + ',\'' + req.body.name + '\',\'' + req.body.desc + '\',\'' + req.body.price + '\');';
+    db.query(queryString)
+    next();
 
+} catch (err){
+    next(err);
+}
 }
 
 
@@ -41,7 +64,15 @@ storeController.deleteStore = (req, res, next) => {
 }
 
 storeController.deleteDrink = (req, res, next) => {
+try{
+    console.log(req.body.name)
+    const queryString = 'DELETE FROM menu_items WHERE (item_name =\'' + req.body.name + '\' AND vendor_id=' + req.body.vendor + ');';
 
+    db.query(queryString);
+    next();
+} catch(err){
+    next(err);
+}
 }
 
 

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import StoreCard from './../cards/storeCard'
 
+import './storeDisplay.css'
+
 const storeDisplay = (props) => {
 
   
@@ -19,7 +21,7 @@ const storeDisplay = (props) => {
 
 
     return (
-        <div>
+        <div id='stores'>
             {storeListEl}
         </div>
     );

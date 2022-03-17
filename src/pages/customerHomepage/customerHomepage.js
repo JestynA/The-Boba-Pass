@@ -11,7 +11,7 @@ import './customerHomepage.css'
 const customerHomepage = () => {
 
     const [state, setState] = useState({
-        response: null
+        stores: null,
     })
 
     useEffect(() => {
@@ -22,8 +22,8 @@ const customerHomepage = () => {
         })
         .then(data => data.json())
         .then(data => {
-            console.log(data)
-            setState({response: data})
+            // console.log(data)
+            setState({stores: data})
             //  storeList = data;
             //  console.log(storeList)
         })
@@ -46,13 +46,13 @@ const customerHomepage = () => {
                 
             <div id='body'>
             <Provider store={store}>
-                <StoreDisplay storeList={state.response}/>
+                <StoreDisplay storeList={state.stores}/>
    
             </Provider>
             
             </div>
 
-            <div id='footer'>
+            <div >
 
             </div>
         </div>
