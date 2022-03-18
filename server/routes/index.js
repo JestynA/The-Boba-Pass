@@ -25,11 +25,12 @@ app.get('/styles.css',(req, res) => {
 
 // user handling
 app.post('/db/create', userController.createUser, (req, res) => {
-  
+  return res.status(200).send();
 })
 
 app.post('/db/login', userController.authorize, (req, res) => {
-  res.redirect('http://localhost:8080/home');
+  console.log('nice');
+  return res.redirect('http://localhost' + port + '/home')
 })
 
 

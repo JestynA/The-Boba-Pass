@@ -2,9 +2,27 @@ import React from 'react';
 
 import './drinkCard.css'
 
+
+
 const drinkCard = (props) => {
+
+    function addToCart(){
+    const item={
+        name: props.itemName,
+        price: props.price
+    }
+
+    
+    // grab current cart array and update it with pushed in obj
+    const arr = props.cart;
+    arr.push(item);
+    
+    props.updateCart({cart: arr})
+
+    console.log(props.cart)
+}
     return (
-        <button id='drinkButton'>
+        <button id='drinkButton' onClick={addToCart}>
             <div id='drinkCard'>
             
                 <h1 id='drinkName'>{props.itemName}</h1>

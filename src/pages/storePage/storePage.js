@@ -21,7 +21,9 @@ const vendorPics = {
     'Roasting Water' : roastingWater
     
     }
-const storePage = () => {
+const storePage = (props) => {
+
+    //console.log(props.cart)
 
     const params = useParams();
     // console.log(params)
@@ -48,15 +50,9 @@ const storePage = () => {
 
         })
 
-        //console.log(state.drinks)
-  
-
     },[])
 
-        // for(const el in state.drinks){
-        //         console.log(state.drinks[el])
-        //         drinkListEl.push(<DrinkCard itemName={state.drinks[el].item_name} itemDesc={datstate.drinksa[el].description} price={state.drinks[el].item_price} key={el}/>)
-        //     }
+
 
     return (
         <div id='storePage'>
@@ -71,7 +67,7 @@ const storePage = () => {
             </div>
             
             <div id='drinksBox'>
-                <DrinkDisplay drinkList={state.drinks}/>
+                <DrinkDisplay updateCart={props.updateCart} cart={props.cart} drinkList={state.drinks}/>
             </div>
         </div>
     );

@@ -13,12 +13,6 @@ const storeDisplay = (props) => {
    for(const el in list){
        storeListEl.push(<StoreCard storeName={list[el].vendor_name} storeDesc={list[el].description} address={list[el].address} city={list[el].city} zip={list[el].zip} id={list[el].vendor_id} key={el}/>)
    }
-//    console.log(list[0])
-    
-    // for(let i = 0; i < props.storeList.length; i++){
-    //     storeListEl.push(<StoreCard storeName={storeList[i].storeName} storeDesc={storeList[i].storeDesc}/>)
-    // }
-
 
     return (
         <div id='stores'>

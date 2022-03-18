@@ -9,7 +9,7 @@ const drinkDisplay = (props) => {
     const drinkListEl = [];
     const list = JSON.parse(JSON.stringify(props.drinkList))
     for(const el in list){
-        drinkListEl.push(<DrinkCard itemName={list[el].item_name} itemDesc={list[el].description} price={list[el].item_price} key={el}/>)
+        drinkListEl.push(<DrinkCard updateCart={props.updateCart} cart={props.cart} itemName={list[el].item_name} itemDesc={list[el].description} price={list[el].item_price} key={el}/>)
     }
 
 

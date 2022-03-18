@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import { BrowserRouter as Router, Switch, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react'
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 import VisitorHome from './pages/visitorHomePage/visitorHomePage'
@@ -14,8 +14,15 @@ import StorePage from  './pages/storePage/storePage';
 
 import store from './store'
 
-const App = () => (
+const App = () => {
 
+    const[state, setState] = useState({
+        cart: [],
+    })
+
+    console.log(state.cart)
+
+    return(
     <Router >
 
 
@@ -24,12 +31,12 @@ const App = () => (
             {/* Change to home element */}
         <Route path='/' element={<VisitorHome/>}/>
         <Route path='/gateway' element={<AccountPage/>}/> 
-        <Route path='/home' element={<CustomerHome/>} store={store}/>
-        <Route path='/housekeeping' element={<HousekeepingPage/>} store={store}/>
-        <Route path='/cart' element={<CartPage/>}/>
+        <Route path='/home' element={<CustomerHome/>} />
+        <Route path='/housekeeping' element={<HousekeepingPage/>} />
+        <Route path='/cart' element={<CartPage cart={state.cart}/>}/>
         <Route path='/notifications' element={<NotiPage/>}/>
         <Route path='/settings' element={<SettingsPage/>}/>
-        <Route path='/vendor/:storeName/:id' element={<StorePage/>}/>
+        <Route path='/vendor/:storeName/:id' element={<StorePage updateCart={setState} cart={state.cart}/>}/>
 
 
         
@@ -37,8 +44,9 @@ const App = () => (
         </Routes>
   
     </Router>
+    )
 
-);
+    };
 
 
 export default App;

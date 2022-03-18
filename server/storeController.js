@@ -55,7 +55,7 @@ try{
 
 storeController.deleteStore = (req, res, next) => {
     try{
-        const queryString = 'DELETE FROM vendors WHERE address =\''+req.body.address+'\''
+        const queryString = 'DELETE FROM vendors WHERE address =\''+req.body.address+'\' '
         db.query(queryString)
         next()
     } catch (err){

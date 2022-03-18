@@ -11,8 +11,17 @@ import settingIcon from './../../../assets/pics/menu.png'
 
 import './customerNavBar.css'
 
+
 class navbar extends Component {
+
+
 render(){
+
+
+
+
+
+
     return(
        <div>
            <ul id='navBar'>
@@ -21,6 +30,9 @@ render(){
            </Link>
                 
                 <div id='accountActions'>
+                <Link to='/'>
+                    <li><button className='button'>-</button></li>
+                </Link>
                 <Link to='/housekeeping'>
                     <li><button className='button' id='housekeepingButton'>+</button></li>
                 </Link>
