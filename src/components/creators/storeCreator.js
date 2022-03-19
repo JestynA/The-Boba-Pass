@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+import './storeCreator.css'
+
 const storeCreator = (props) => {
     return (
         <div>

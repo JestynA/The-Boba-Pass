@@ -17,20 +17,18 @@ const drinkCard = (props) => {
     const arr = props.cart;
     arr.push(item);
     
-    props.updateCart({cart: arr})
+    props.updateCart({cart: arr},
+        console.log('asdsa')
+        )
 
-    console.log(props.cart)
+    //console.log(props.cart)
 }
     return (
         <button id='drinkButton' onClick={addToCart}>
-            <div id='drinkCard'>
-            
+            <div id='drinkCard'>          
                 <h1 id='drinkName'>{props.itemName}</h1>
                 <h3 id='drinkDesc'>{props.itemDesc}</h3>    
-                <p id='drinkPrice'>{props.price}</p>
-
-
-            
+                <p id='drinkPrice'>{props.price}</p>    
             </div>
         </button>
     );
