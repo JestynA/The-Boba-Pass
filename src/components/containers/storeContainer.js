@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { render } from '../../../server/routes';
 import * as actions from './../reducers/actions'
 
 import StoreCreator from '../creators/storeCreator';
@@ -22,17 +21,16 @@ const mapDispatchToProps = dispatch => {
 }
 
 class storeContainer extends Component {
-constructor(props){
-    super(props);
-}
+    constructor(props){
+        super(props);
+    }
 
     render(){
         return (
-        <div id='storeContainer'>
-            
-            <StoreCreator addStore={this.props.addStore} deleteStore={this.props.deleteStore} />
-        </div>
-    ); 
+            <div id='storeContainer'>
+                <StoreCreator addStore={this.props.addStore} deleteStore={this.props.deleteStore} />
+            </div>
+        ); 
     }
    
 };

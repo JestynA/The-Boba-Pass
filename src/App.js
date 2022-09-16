@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 
 import VisitorHome from './pages/visitorHomePage/visitorHomePage'
@@ -23,27 +23,20 @@ const App = () => {
     console.log(state.cart)
 
     return(
-    <Router >
-
-
-        <Routes>
-
-            {/* Change to home element */}
-        <Route path='/' element={<VisitorHome/>}/>
-        <Route path='/gateway' element={<AccountPage/>}/> 
-        <Route path='/home' element={<CustomerHome/>} />
-        <Route path='/housekeeping' element={<HousekeepingPage/>} />
-        <Route path='/cart' element={<CartPage cart={state.cart}/>}/>
-        <Route path='/notifications' element={<NotiPage/>}/>
-        <Route path='/settings' element={<SettingsPage/>}/>
-        <Route path='/vendor/:storeName/:id' element={<StorePage updateCart={setState} cart={state.cart}/>}/>
-
-
-        
-
-        </Routes>
-  
-    </Router>
+        <Provider store = {store}>
+            <Router >
+                <Routes>
+                    <Route path='/' element={<VisitorHome/>}/>
+                    <Route path='/gateway' element={<AccountPage/>}/> 
+                    <Route path='/home' element={<CustomerHome/>} />
+                    <Route path='/housekeeping' element={<HousekeepingPage/>} />
+                    <Route path='/cart' element={<CartPage cart={state.cart}/>}/>
+                    <Route path='/notifications' element={<NotiPage/>}/>
+                    <Route path='/settings' element={<SettingsPage/>}/>
+                    <Route path='/vendor/:storeName/:id' element={<StorePage updateCart={setState} cart={state.cart}/>}/>
+                </Routes>
+            </Router>
+        </Provider>
     )
 
     };

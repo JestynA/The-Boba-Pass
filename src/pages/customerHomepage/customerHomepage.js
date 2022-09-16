@@ -22,10 +22,7 @@ const customerHomepage = () => {
         })
         .then(data => data.json())
         .then(data => {
-            // console.log(data)
             setState({stores: data})
-            //  storeList = data;
-            //  console.log(storeList)
         })
 
     },[])

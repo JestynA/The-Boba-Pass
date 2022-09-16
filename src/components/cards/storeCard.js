@@ -21,29 +21,18 @@ const vendorPics = {
 
 const storeCard = (props) => {
     return (
-        <div id='storeCard'>
-        <Link to={'/vendor/'+props.storeName+'/'+props.id}>
-            
-            <img id='image' src={vendorPics[props.storeName]}></img> 
-            
+        <Link to={'/vendor/'+props.storeName+'/'+props.id} id = 'storeCard'>
+            <img id='image' src={vendorPics[props.storeName]}></img>  
             <div id='storeData'>
                     <div>
                         <h2 id='storeName'>{props.storeName}</h2>
                         <p id='storeAddress'>{props.address}<br></br>{props.city} {props.zip}</p>
                     </div>
-                    
-                        
-                    
                     <div id='details'>
                         <p>Time: 5 mins <br></br> Distance: 1 mi.</p>
-                    </div>
-                
+                    </div>               
             </div> 
         </Link>
-
-
-            
-        </div>
     );
 };
 

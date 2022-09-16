@@ -1,7 +1,4 @@
-// import { bindActionCreators } from "redux";
 import * as types from './actionTypes'
-
-// import db from './../../../server/models/database'
 
 const initialState = {
     storeList : [],
@@ -15,13 +12,12 @@ const initialState = {
 // address: {city: Chino Hills, address: 360 noscope ave, zip: 91709}
 
 const storeReducer = (state = initialState, action) => {
-let storeList;
+
 let drinkList;
     
     switch(action.type){
         case types.ADD_STORE:
-
-        console.log(action.payload)
+            let storeList;
             fetch('/db/createStore',{
                 method: 'POST',
                 headers: {
@@ -34,6 +30,8 @@ let drinkList;
 
             storeList = state.storeList.map((el) => {return JSON.parse(JSON.stringify(el))})
             storeList.push(action.payload)
+
+            //storeList = [...state.storeList, action.payload]
 
 
             return {
@@ -80,7 +78,6 @@ let drinkList;
 
 
         case types.DELETE_DRINK:
-            //console.log(action.payload)
             fetch('/db/deleteDrink',{
                 method: 'POST',
                 headers: {

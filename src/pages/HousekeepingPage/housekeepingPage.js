@@ -9,19 +9,16 @@ import CustomerNavBar from './../../components/navbar/customerNavBar';
 
 class housekeepingPage extends Component {
 
-
-
     render(){
-            return (
-        <div>
-        <CustomerNavBar/>
-        <Provider store = {store}>
-               <StoreContainer/>        
-               <DrinkContainer/>
-        </Provider>
-
-        </div>
-    );
+        return (
+            <>
+                <CustomerNavBar/>
+                <Provider store = {store}>
+                    <StoreContainer/>        
+                    <DrinkContainer/>
+                </Provider>
+            </>
+        );
     }
 
 };
