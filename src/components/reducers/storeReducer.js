@@ -13,26 +13,15 @@ const initialState = {
 
 const storeReducer = (state = initialState, action) => {
 
-let drinkList;
-    
     switch(action.type){
         case types.ADD_STORE:
             let storeList;
-            fetch('/db/createStore',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                  },
-                body : JSON.stringify(action.payload)
-            })
-            .then(res => console.log(res))
-
-
             storeList = state.storeList.map((el) => {return JSON.parse(JSON.stringify(el))})
             storeList.push(action.payload)
 
-            //storeList = [...state.storeList, action.payload]
-
+            console.log('state', state)
+            const test = [...state.storeList, action.payload]
+            console.log('here is reducer', test)
 
             return {
                 ...state,
@@ -42,6 +31,7 @@ let drinkList;
             
         
         case types.ADD_DRINK:
+            let drinkList;
             fetch('/db/addDrink',{
                 method: 'POST',
                 headers: {

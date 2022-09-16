@@ -16,6 +16,15 @@ const storeCreator = (props) => {
             city : document.getElementById('city').value,
             zip : document.getElementById('zip').value
         }
+
+        fetch('/db/createStore',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body : JSON.stringify(storeInfo)
+        })
+        .then(res => console.log('added store to database'))
     
         props.addStore(storeInfo)
         setNotifyText('added')
