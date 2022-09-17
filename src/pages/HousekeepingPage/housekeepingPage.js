@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import { connect, Provider } from 'react-redux';
-
-import StoreContainer from '../../components/containers/storeContainer';
-import DrinkContainer from '../../components/containers/drinkContainer';
-import store from '../../store';
 
 import CustomerNavBar from './../../components/navbar/customerNavBar';
+import StoreContainer from '../../components/containers/storeContainer';
+import DrinkContainer from '../../components/containers/drinkContainer';
 
-class housekeepingPage extends Component {
 
-    render(){
-        return (
-            <>
-                <CustomerNavBar/>
-                <Provider store = {store}>
-                    <StoreContainer/>        
-                    <DrinkContainer/>
-                </Provider>
-            </>
-        );
-    }
+ 
+ const housekeepingPage = () => {
+    console.log('hello')
+    return (
+        <div>
+            <CustomerNavBar/>
+            <StoreContainer/>        
+            <DrinkContainer/>
+        </div>
+    );
+ };
 
-};
 
 export default housekeepingPage;

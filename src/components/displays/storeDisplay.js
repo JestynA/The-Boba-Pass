@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import StoreCard from './../cards/storeCard'
 
 import './storeDisplay.css'
 
-const storeDisplay = (props) => {
 
-  
+const storeDisplay = ({storeList}) => {
+
     //get request to grab all the store elements
+    console.log('storeprops', storeList)
    
     const storeListEl = []
-   const list = JSON.parse(JSON.stringify(props.storeList));
-   for(const el in list){
+   //const list = JSON.parse(JSON.stringify(props.storeList));
+   for(const el in storeList){
        storeListEl.push(<StoreCard storeName={list[el].vendor_name} storeDesc={list[el].description} address={list[el].address} city={list[el].city} zip={list[el].zip} id={list[el].vendor_id} key={el}/>)
    }
 

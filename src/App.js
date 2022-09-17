@@ -15,25 +15,18 @@ import StorePage from  './pages/storePage/storePage';
 import store from './store'
 
 const App = () => {
-
-    const[state, setState] = useState({
-        cart: [],
-    })
-
-    console.log(state.cart)
-
     return(
         <Provider store = {store}>
-            <Router >
+            <Router>
                 <Routes>
                     <Route path='/' element={<VisitorHome/>}/>
                     <Route path='/gateway' element={<AccountPage/>}/> 
                     <Route path='/home' element={<CustomerHome/>} />
                     <Route path='/housekeeping' element={<HousekeepingPage/>} />
-                    <Route path='/cart' element={<CartPage cart={state.cart}/>}/>
+                    <Route path='/cart' element={<CartPage/>}/>
                     <Route path='/notifications' element={<NotiPage/>}/>
                     <Route path='/settings' element={<SettingsPage/>}/>
-                    <Route path='/vendor/:storeName/:id' element={<StorePage updateCart={setState} cart={state.cart}/>}/>
+                    <Route path='/vendor/:storeName/:id' element={<StorePage/>}/>
                 </Routes>
             </Router>
         </Provider>

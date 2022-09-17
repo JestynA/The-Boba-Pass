@@ -1,6 +1,6 @@
 import React , { Component} from 'react';
 import { connect } from 'react-redux';
-import * as actions from './../reducers/actions'
+import * as actions from '../../redux/reducers/actions'
 
 import DrinkCreator from '../creators/drinkCreator';
 

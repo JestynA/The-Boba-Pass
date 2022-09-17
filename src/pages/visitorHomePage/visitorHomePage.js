@@ -11,19 +11,15 @@ import Locations from '../../components/locations/locations'
 
 
 const home = () => {
-    return (
-        
+    return (        
         <div id='home'>
-        <VisitorNavbar/>
-        <IntroBox/>
-        {/* <a href='/login'> <button>TEst</button></a> */}
-        <Passes/>
-        <Locations/>
+            <VisitorNavbar/>
+            <IntroBox/>
+            {/* <a href='/login'> <button>TEst</button></a> */}
+            <Passes/>
+            <Locations/>
         </div>
     );
-
-
-   
 };
 
 

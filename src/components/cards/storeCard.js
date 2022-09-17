@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../reducers/actionTypes'
+import * as actions from '../../redux/reducers/actionTypes'
 import { Link } from 'react-router-dom';
 
 import './storeCard.css'

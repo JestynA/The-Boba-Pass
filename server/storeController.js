@@ -6,7 +6,6 @@ storeController.getStores = async (req, res, next) => {
     try{
         const queryString = 'SELECT * FROM vendors';
         res.locals.data = await db.query(queryString);
-  
         next();
     } catch (err){
         next(err);

@@ -1,36 +1,45 @@
-import React, { useState , useEffect } from 'react';
-import { Provider } from 'react-redux';
-import store from '../../store';
+import React, { useEffect } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 import StoreDisplay from '../../components/displays/storeDisplay';
 import CustomerNav from '../../components/navbar/customerNavBar'
+import * as actions from '../../redux/reducers/actions'
 
 
 import './customerHomepage.css'
 
-const customerHomepage = () => {
-
-    const [state, setState] = useState({
-        stores: null,
+const mapStateToProps = state => {
+    return ({
+        stores: state.storeList
     })
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setStores : () => dispatch(actions.setStoresCreator())
+    }
+}
+
+
+
+const customerHomepage = ({setStores, stores}) => {
+    // const stores = useSelector( state => state.storeList)
+    // //let stores = props.storeList
+    // const dispatch = useDispatch()
+
+    console.log('tables', stores)
+    const storeList = useSelector(state => state.storeList)
+    console.log('stores:', storeList)
 
     useEffect(() => {
-
-        fetch('/db/getStores',{
-            method: 'GET',
-
-        })
-        .then(data => data.json())
-        .then(data => {
-            setState({stores: data})
-        })
-
+        setStores()
+       
     },[])
 
 
     return (
-        <div>
-        <CustomerNav/>
+        <>
+            <CustomerNav/>
             <div id='header'>
                 <div id='currOrderBox'>
                     <h1>Current Order</h1>
@@ -38,21 +47,13 @@ const customerHomepage = () => {
                 <div id='membershipStatusBox'>
                     <h1>Remaining Drinks</h1>
                 </div>
-
             </div>
                 
             <div id='body'>
-            <Provider store={store}>
-                <StoreDisplay storeList={state.stores}/>
-            </Provider>
-            
+                    <StoreDisplay storeList = {stores}/>
             </div>
-
-            <div >
-
-            </div>
-        </div>
+        </>
     );
 };
 
-export default customerHomepage;
+export default connect(mapStateToProps, mapDispatchToProps)(customerHomepage);
