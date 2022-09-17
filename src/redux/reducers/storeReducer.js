@@ -17,11 +17,14 @@ const storeReducer = (state = initialState, action) => {
                 loading: true
             }
         case types.SET_STORES_SUCCESS:
+            let list
+            list = state.storeList.map((el) => JSON.parse(JSON.strinfigy(el)))
+            list.push(...action.payload)
             return {
                 ...state,
                 loading: false,
                 error: '',
-                storeList: action.payload
+                storeList: [...action.payload]
             }
         case types.SET_STORES_FAILURE:
             return {

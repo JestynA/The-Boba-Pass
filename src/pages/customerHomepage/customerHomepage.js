@@ -26,15 +26,9 @@ const customerHomepage = ({setStores, stores}) => {
     // const stores = useSelector( state => state.storeList)
     // //let stores = props.storeList
     // const dispatch = useDispatch()
-
-    console.log('tables', stores)
     const storeList = useSelector(state => state.storeList)
     console.log('stores:', storeList)
 
-    useEffect(() => {
-        setStores()
-       
-    },[])
 
 
     return (
@@ -50,7 +44,7 @@ const customerHomepage = ({setStores, stores}) => {
             </div>
                 
             <div id='body'>
-                    <StoreDisplay storeList = {stores}/>
+                    <StoreDisplay storeList = {storeList}/>
             </div>
         </>
     );
