@@ -1,0 +1,11 @@
+
+export const SET_STORES = 'SET_STORES';
+export const SET_STORES_REQUEST = 'SET_STORES_REQUEST';
+export const SET_STORES_SUCCESS = 'SET_STORES_SUCCESS';
+export const SET_STORES_FAILURE = 'SET_STORES_FAILURE';
+export const ADD_STORE = 'ADD_STORE';
+export const DELETE_STORE = 'DELETE_STORE';
+export const ADD_DRINK = 'ADD_DRINK';
+export const DELETE_DRINK = 'DELETE_DRINK';
+
+

@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
+
+#app{
+    display:flex;
+    flex-direction: column;
+}
+
+
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+   
+}

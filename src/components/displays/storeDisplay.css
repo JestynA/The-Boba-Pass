@@ -1,0 +1,7 @@
+#stores{
+    display:flex;
+    justify-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    height: 100%;
+}

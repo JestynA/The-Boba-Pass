@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
+
+#tierContainer{
+
+    font-family: 'Fredoka', sans-serif;
+    background-color: rgb(233, 233, 233);
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;   
+    padding-top: 80px;
+    padding-bottom: 80px;
+    /* padding-left: 10%;
+    padding-right: 10%; */
+    gap: 5vw;
+
+    box-shadow: 0px 0px 10px;
+    width: 100vw;
+    left: 0;
+
+}
+
+.tierRows{
+    width: 100%;
+    height: 600px;
+    flex-grow: 3;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+
+}
+
+#bobaButton{
+    font-family: 'Fredoka', sans-serif;
+    background-color: black;
+    border-width: 6px;
+    border-color: rgb(37, 37, 37);
+    color: white;
+    border-radius: 300px;
+
+    font-weight: normal;
+    font-size: 4vh;
+    
+    height:500px;
+    max-width: 30%;
+    min-width: 500px;
+}
+
+#bobaButton:hover{
+    font-weight: bold;
+    font-size: 65;
+    border-color: rgb(17, 17, 17);
+    background-color: rgb(17, 17, 17);
+}
+
+#planButton{
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: rgb(226, 177, 132);
+    min-width: 110px;
+    min-height: 40px;
+    max-height: 2vh;
+    max-width: 4.5vw;
+    border-color: rgb(226, 177, 132);
+    border-style: solid;
+    border-radius: 20px;
+}
+
+#planButton:hover{
+    font-weight: bold;
+    background-color: rgb(206, 168, 132);
+    border-color: rgb(206, 168, 132);
+}
+.description{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description h2{
+    color: rgb(48, 48, 48);
+}
+
+.description h5{
+    color: rgb(136, 136, 136);
+}

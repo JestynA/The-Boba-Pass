@@ -1,0 +1,21 @@
+#cartBox{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(187, 187, 187);
+    width: 70%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#totals{
+    text-align: right;
+}
+
+#cartShelf{
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(214, 214, 214);
+    padding: 20px;
+}

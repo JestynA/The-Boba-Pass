@@ -1,0 +1,26 @@
+
+#drinkCard{
+
+
+}
+
+#drinkButton{
+height: 20vh;
+width: 15vw;    
+background-color: rgb(216, 216, 216);
+}
+
+#drinkButton:hover{
+    background-color: rgb(189, 189, 189); 
+}
+#drinkName{
+font-size: 1.5vh !important;
+}
+
+#drinkDesc{
+font-size: 1vh;
+}
+
+#drinkPrice{
+
+}
