@@ -1,35 +1,14 @@
-import { FaLaptopHouse } from 'react-icons/fa'
 import * as types from '../actionTypes'
 
 const initialState = {
     loading: false,
     error: '',
-    storeList : [],
     drinkList: [],
-    cart: []
 }
 
 const storeReducer = (state = initialState, action) => {
 
     switch(action.type){
-        case types.SET_STORES_REQUEST: 
-            return {
-                ...state,
-                loading: true
-            }
-        case types.SET_STORES_SUCCESS:
-            return {
-                loading: false,
-                error: '',
-                storeList: action.payload
-            }
-        case types.SET_STORES_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                storeList: [],
-                error: action.payload
-            }
         case types.ADD_STORE:
             let storeList;
             storeList = state.storeList.map((el) => {return JSON.parse(JSON.stringify(el))})

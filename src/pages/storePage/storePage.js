@@ -21,10 +21,10 @@ const vendorPics = {
     
 const storePage = (props) => {
 
+
+
     const params = useParams();
-    const [state, setState] = useState({
-        drinks: null,
-    })
+    const [drinks, setDrinks] = useState([])
 
 
     useEffect(() => {
@@ -38,10 +38,9 @@ const storePage = (props) => {
         })
         .then(data => data.json())
         .then(data => {
-            setState({drinks: data})
+            setDrinks(data)
 
         })
-
     },[])
 
 
@@ -59,7 +58,7 @@ const storePage = (props) => {
             </div>
             
             <div id='drinksBox'>
-                <DrinkDisplay updateCart={props.updateCart} cart={props.cart} drinkList={state.drinks}/>
+                <DrinkDisplay drinkList={drinks}/>
             </div>
         </div>
     );

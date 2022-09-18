@@ -1,41 +1,9 @@
 import * as types from './actionTypes'
 
-export const setStoresCreator = () => {
-
-    // thunk, does not need to be pure
-    return (dispatch) => {
-        dispatch(setStoresRequest())
-        fetch('/db/getStores',{
-            method: 'GET',
-        })
-        .then(data => data.json())
-        .then(res => {
-            dispatch(setStoresSuccess(res))
-        })
-        .catch(err => {
-            const errorMsg = err.message
-            dispatch(setStoresFailure(errorMsg))
-        })
-    }
-}
-
-const setStoresRequest = () => {
+export const addToCartCreator = (drinkInfo) => {
     return {
-        type: types.SET_STORES_REQUEST
-    }
-}
-
-const setStoresSuccess = (stores) => {
-    return {
-        type: types.SET_STORES_SUCCESS,
-        payload: stores
-    }
-}
-
-const setStoresFailure = (err) => {
-    return {
-        type: types.SET_STORES_FAILURE,
-        payload: err
+        type: types.ADD_TO_CART,
+        payload: drinkInfo
     }
 }
 
