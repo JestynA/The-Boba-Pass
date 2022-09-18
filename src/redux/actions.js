@@ -7,6 +7,13 @@ export const addToCartCreator = (drinkInfo) => {
     }
 }
 
+export const removeFromCartCreator = (index) => {
+    return {
+        type: types.REMOVE_FROM_CART,
+        payload: index
+    }
+}
+
 export const addStoreCreator = (storeInfo) => {
     return({
         type: types.ADD_STORE,

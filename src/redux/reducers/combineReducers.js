@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 // importing reducers
-import storeReducer from './storeReducer'
+import storeReducer from './vendorReducer'
 import cartReducer from './cartReducer'
 
 // combine reducers

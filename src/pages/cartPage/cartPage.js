@@ -1,28 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect , useSelector} from 'react-redux';
 import CustomerNavBar from './../../components/navbar/customerNavBar';
 import './cartPage.css';
 import CartItem from './cartItem';
 
-const mapStateToProps = state => {
-    return ({
-        cart: state.cart
-    })
-}
+const cartPage = () => {
 
-const cartPage = (props) => {
-    console.log(props.cart)
+    const cart = useSelector(state => state.cartReducer.cart)
+    let total = 0
 
-    const cartList = props.cart;
-    const cartListEl = [];
-    let total = 0;
-    //const totalDrinks = cartList.length;
-    for(const el in cartList){
-        cartListEl.push(<CartItem name={cartList[el].name} price={cartList[el].price} key={el}/>);
-        total += cartList[el].price;
-    
-    }
-    
+    const cartListEl = cart.map((item, index) => {
+        total += item.item_price
+        return (
+            <CartItem item = {item} key = {index} index = {index}/>
+        )
+    });
+
 
     return (
         <>
@@ -36,7 +29,7 @@ const cartPage = (props) => {
                         Total: {total.toFixed(2)} 
                         <br></br>
                         <hr></hr>
-                        Total Drinks: {}
+                        Total Drinks: {cart.length}
                     </div>   
                 </div>
             </div>
@@ -44,4 +37,4 @@ const cartPage = (props) => {
     );
 };
 
-export default connect(mapStateToProps)(cartPage);
+export default cartPage;
