@@ -4,13 +4,6 @@ import * as actions from '../../redux/reducers/actions'
 
 import './storeContainer.css'
 
-const mapStateToProps = state => {
-    return({
-        totalStores: state.totalStores,
-        storeList: state.storeList
-    })
-}
-
 const mapDispatchToProps = dispatch => {
     return {
         addStore : (storeInfo) => dispatch(actions.addStoreCreator(storeInfo)),
@@ -18,7 +11,7 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const storeContainer = (props) => {
+const storeContainer = ({addStore, deleteStore}) => {
 
     let [notifyText, setNotifyText] = useState(null)
 
@@ -38,14 +31,16 @@ const storeContainer = (props) => {
               },
             body : JSON.stringify(storeInfo)
         })
-        .then(res => console.log('added store to database'))
+        .then(res => {
+            if(res.status === 200) console.log('Added store to database!')
+        })
     
-        props.addStore(storeInfo)
+        addStore(storeInfo)
         setNotifyText('added')
     }
 
     const handleDelete = () => {
-        props.deleteStore(document.getElementById('delAddress').value)
+        deleteStore(document.getElementById('delAddress').value)
         setNotifyText('deleted')
     }
 
@@ -60,7 +55,7 @@ const storeContainer = (props) => {
             
                 : null
             }
-            <h1>Store Maker</h1>
+            <h1>Add store</h1>
             <div>
                 <form onSubmit={(e) => e.preventDefault()}>
                     <input required id='storeInput' placeholder='Name'/>
@@ -84,4 +79,4 @@ const storeContainer = (props) => {
    
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(storeContainer);
+export default connect(null, mapDispatchToProps)(storeContainer);

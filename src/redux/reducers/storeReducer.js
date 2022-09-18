@@ -12,6 +12,7 @@ const storeReducer = (state = initialState, action) => {
 
     switch(action.type){
         case types.SET_STORES_REQUEST: 
+        console.log('loading stores')
             return {
                 ...state,
                 loading: true
@@ -29,24 +30,15 @@ const storeReducer = (state = initialState, action) => {
                 loading: false,
                 storeList: [],
                 error: action.payload
-        
             }
         case types.ADD_STORE:
             let storeList;
             storeList = state.storeList.map((el) => {return JSON.parse(JSON.stringify(el))})
             storeList.push(action.payload)
-
-            console.log('state', state)
-            const test = [...state.storeList, action.payload]
-            console.log('here is reducer', test)
-
             return {
                 ...state,
                 storeList,
             }
-
-            
-        
         case types.ADD_DRINK:
             let drinkList;
             fetch('/db/addDrink',{

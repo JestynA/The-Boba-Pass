@@ -1,39 +1,20 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-
 import StoreDisplay from '../../components/displays/storeDisplay';
 import CustomerNav from '../../components/navbar/customerNavBar'
 import * as actions from '../../redux/reducers/actions'
-
-
 import './customerHomepage.css'
 
-const mapStateToProps = state => {
-    return ({
-        stores: state.storeList
-    })
-}
+const customerHomepage = () => {
 
-const mapDispatchToProps = dispatch => {
-    return {
-        setStores : () => dispatch(actions.setStoresCreator())
-    }
-}
-
-
-
-const customerHomepage = ({setStores, stores}) => {
-    // const stores = useSelector( state => state.storeList)
-    // //let stores = props.storeList
-    // const dispatch = useDispatch()
-
-    console.log('tables', stores)
+    
     const storeList = useSelector(state => state.storeList)
-    console.log('stores:', storeList)
+    const isLoading = useSelector(state => state.loading)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        setStores()
-       
+        //setStores()
+        dispatch(actions.setStoresCreator())
     },[])
 
 
@@ -50,10 +31,13 @@ const customerHomepage = ({setStores, stores}) => {
             </div>
                 
             <div id='body'>
-                    <StoreDisplay storeList = {stores}/>
+            { isLoading ? 
+                (<h1> Loading... </h1>) : 
+                (<StoreDisplay storeList = {storeList}/>)
+            }  
             </div>
         </>
     );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(customerHomepage);
+export default customerHomepage;

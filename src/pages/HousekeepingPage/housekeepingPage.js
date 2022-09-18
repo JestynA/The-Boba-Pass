@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import CustomerNavBar from './../../components/navbar/customerNavBar';
 import StoreContainer from '../../components/containers/storeContainer';
 import DrinkContainer from '../../components/containers/drinkContainer';
 
-
- 
  const housekeepingPage = () => {
-    console.log('hello')
     return (
         <div>
             <CustomerNavBar/>
@@ -16,6 +12,5 @@ import DrinkContainer from '../../components/containers/drinkContainer';
         </div>
     );
  };
-
 
 export default housekeepingPage;
