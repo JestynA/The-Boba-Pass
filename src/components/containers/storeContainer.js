@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../redux/actions'
-
 import './storeContainer.css'
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addStore : (storeInfo) => dispatch(actions.addStoreCreator(storeInfo)),
-        deleteStore : (address) => dispatch(actions.deleteStoreCreator(address)),
-    }
-}
-
-const storeContainer = ({addStore, deleteStore}) => {
+const storeContainer = () => {
 
     let [notifyText, setNotifyText] = useState(null)
+
+    const notifyUser = (result) => {
+        setNotifyText(result)
+        setTimeout(() => setNotifyText(null), 3000)
+    }
 
     const handleAdd = () => {
         const storeInfo = {
@@ -31,30 +26,27 @@ const storeContainer = ({addStore, deleteStore}) => {
               },
             body : JSON.stringify(storeInfo)
         })
-        .then(res => {
-            if(res.status === 200) console.log('Added store to database!')
-        })
-    
-        addStore(storeInfo)
-        setNotifyText('added')
+        .then(notifyUser('added'))
+ 
     }
 
     const handleDelete = () => {
-        deleteStore(document.getElementById('delAddress').value)
-        setNotifyText('deleted')
+        const store = {
+            address : document.getElementById('delAddress').value
+        }
+        fetch('/db/deleteStore', {
+            method: 'POST',
+            headers: {
+                'Content-type' : 'Application/json'
+            },
+            body: JSON.stringify(store)
+        })
+        .then(notifyUser('deleted'))
     }
 
     return (
         <div id='storeContainer'>
-            {notifyText ? 
-                (
-                <div>
-                    Store has been {notifyText}!
-                </div>
-                )
-            
-                : null
-            }
+            {notifyText && <div> Store has been {notifyText}!</div>}
             <h1>Add store</h1>
             <div>
                 <form onSubmit={(e) => e.preventDefault()}>
@@ -79,4 +71,4 @@ const storeContainer = ({addStore, deleteStore}) => {
    
 };
 
-export default connect(null, mapDispatchToProps)(storeContainer);
+export default storeContainer;
