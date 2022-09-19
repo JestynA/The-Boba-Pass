@@ -1,16 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './drinkCard.css'
 import * as actions from '../../redux/actions'
-
-
 
 const drinkCard = ({drink}) => {
 
     const dispatch = useDispatch()
-
     const handleClick = () => {
-        console.log('adding to cart')
         dispatch(actions.addToCartCreator(drink))
     }
 

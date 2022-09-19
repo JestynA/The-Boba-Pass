@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch, connect} from 'react-redux';
-import * as actions from './redux/actions'
+import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import VisitorHome from './pages/visitorHomePage/visitorHomePage'
 import CustomerHome from './pages/customerHomepage/customerHomepage'
@@ -12,7 +10,7 @@ import SettingsPage from './pages/settingsPage/settingsPage';
 import StorePage from  './pages/storePage/storePage';
 
 
-const App = ({storeList, getStores}) => {
+const App = () => {
 
     return(
         <Router>

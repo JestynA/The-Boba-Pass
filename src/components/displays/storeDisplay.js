@@ -6,17 +6,15 @@ import './storeDisplay.css'
 
 const storeDisplay = ({storeList}) => {
 
-    //get request to grab all the store elements
-   
-    const storeListEl = []
-   //const list = JSON.parse(JSON.stringify(props.storeList));
-   for(const el in storeList){
-       storeListEl.push(<StoreCard storeName={storeList[el].vendor_name} storeDesc={storeList[el].description} address={storeList[el].address} city={storeList[el].city} zip={storeList[el].zip} id={storeList[el].vendor_id} key={el}/>)
-   }
+   const stores = storeList.map((store) => {
+    return (
+        <StoreCard store = {store} key = {store.vendor_id}/> 
+    )
+   })
 
     return (
         <div id='stores'>
-            {storeListEl}
+            {stores}
         </div>
     );
 };
