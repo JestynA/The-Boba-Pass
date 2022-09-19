@@ -39,7 +39,6 @@ const storePage = (props) => {
         .then(data => data.json())
         .then(data => {
             setDrinks(data)
-
         })
     },[])
 

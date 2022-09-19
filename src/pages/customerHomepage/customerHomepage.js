@@ -18,7 +18,6 @@ const customerHomepage = () => {
         })
         .then(data => data.json())
         .then(res => {
-            console.log('hello')
             setStores(res)
             setLoading(false)
         })

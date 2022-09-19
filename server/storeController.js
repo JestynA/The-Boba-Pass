@@ -40,6 +40,7 @@ storeController.addStore = (req, res, next) => {
 }
 
 storeController.addDrink = (req, res, next) => {
+    console.log(req.body)
     try{
         const queryString = 'INSERT INTO menu_items (vendor_id,item_name, description, item_price) VALUES ('+ req.body.vendor_id + ',\'' + req.body.name + '\',\'' + req.body.desc + '\',\'' + req.body.price + '\');';
         db.query(queryString)
@@ -61,6 +62,7 @@ storeController.deleteStore = (req, res, next) => {
 }
 
 storeController.deleteDrink = (req, res, next) => {
+    console.log('body', req.body)
     try{
         const queryString = 'DELETE FROM menu_items WHERE (item_name =\'' + req.body.name + '\' AND vendor_id=' + req.body.vendor + ');';
 

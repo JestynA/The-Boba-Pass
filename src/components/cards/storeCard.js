@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../redux/actionTypes'
 import { Link } from 'react-router-dom';
 
 import './storeCard.css'
@@ -29,7 +27,7 @@ const storeCard = (props) => {
                         <p id='storeAddress'>{props.address}<br></br>{props.city} {props.zip}</p>
                     </div>
                     <div id='detailsBox'>
-                        <p id='details'>Time: 5 mins <br></br> Distance: 1 mi.</p>
+                        <p id='details'>Time: 5 mins <br></br> Distance: 1 mi. <br/> id : {props.id}</p>
                     </div>               
             </div> 
         </Link>
