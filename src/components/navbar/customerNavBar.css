@@ -29,7 +29,17 @@
     
 }
 
-
+#cartSize{
+    position: absolute;
+    top: 15px;
+    border-radius: 50%;
+    height:10px;
+    aspect-ratio: 1;
+    background-color: red;
+    color: black;
+    font-size: 8px;
+    text-align: center;
+}
 
 #accountActions{
     padding-right: 60px;

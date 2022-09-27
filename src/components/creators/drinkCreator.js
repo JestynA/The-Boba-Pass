@@ -8,10 +8,10 @@ const drinkCreator = (props) => {
             <h1>Drink Creator</h1>
             <div>
                 <form onSubmit={(e) => e.preventDefault()}>
-                    <input id='drinkName' placeholder='Drink'></input>
-                    <input id='drinkDesc' placeholder='Description'></input>
-                    <input id='priceInput' placeholder='Price'></input>
-                    <input id='vendorId' placeholder='vendor #'></input>
+                    <input required id='drinkName' placeholder='Drink'></input>
+                    <input required id='drinkDesc' placeholder='Description'></input>
+                    <input required id='priceInput' placeholder='Price'></input>
+                    <input required id='vendorId' placeholder='vendor #'></input>
                     <button onClick={() => {
                         const drinkinfo = {
                             name: document.getElementById('drinkName').value,

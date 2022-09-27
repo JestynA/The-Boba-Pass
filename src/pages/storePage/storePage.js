@@ -3,10 +3,7 @@ import { useParams } from 'react-router-dom';
 import CustomerNavBar from './../../components/navbar/customerNavBar'
 
 import './storePage.css'
-
-
 import DrinkDisplay from '../../components/displays/drinkDisplay';
-
 import Tastea from './../../../assets/pics/locations/storePics/Tastea.png'
 import bobaFiend from './../../../assets/pics/locations/storePics/BobaFiend.jpg'
 import dingTea from './../../../assets/pics/locations/storePics/dingTea.jpg'
@@ -21,22 +18,17 @@ const vendorPics = {
     'Roasting Water' : roastingWater
     
     }
+    
 const storePage = (props) => {
 
-    //console.log(props.cart)
+
 
     const params = useParams();
-    // console.log(params)
-    const [state, setState] = useState({
-        drinks: null,
-    })
+    const [drinks, setDrinks] = useState([])
 
-    // let drinkList;
-    // const drinkListEl = [];
 
     useEffect(() => {
         
-
         fetch('/db/getDrinks',{
             method: 'POST',
             headers: {
@@ -46,17 +38,15 @@ const storePage = (props) => {
         })
         .then(data => data.json())
         .then(data => {
-            setState({drinks: data})
-
+            setDrinks(data)
         })
-
     },[])
 
 
 
     return (
         <div id='storePage'>
-        <CustomerNavBar/>
+            <CustomerNavBar/>
             <div id='header'>
                  <img id ='storeImg' src={vendorPics[params.storeName]}></img>
                 
@@ -67,7 +57,7 @@ const storePage = (props) => {
             </div>
             
             <div id='drinksBox'>
-                <DrinkDisplay updateCart={props.updateCart} cart={props.cart} drinkList={state.drinks}/>
+                <DrinkDisplay drinkList={drinks}/>
             </div>
         </div>
     );

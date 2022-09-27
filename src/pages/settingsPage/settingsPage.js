@@ -1,5 +1,4 @@
 import React from 'react';
-
 import CustomerNavbar from './../../components/navbar/customerNavBar'
 
 const settingsPage = () => {

@@ -1,39 +1,37 @@
-import React, { useState , useEffect } from 'react';
-import { Provider } from 'react-redux';
-import store from '../../store';
-
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import StoreDisplay from '../../components/displays/storeDisplay';
 import CustomerNav from '../../components/navbar/customerNavBar'
-
-
+import * as actions from '../../redux/actions'
 import './customerHomepage.css'
 
 const customerHomepage = () => {
 
-    const [state, setState] = useState({
-        stores: null,
-    })
+    
+    const [stores, setStores] = useState([])
+    const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
-
+        setLoading(true)
         fetch('/db/getStores',{
             method: 'GET',
-
         })
         .then(data => data.json())
-        .then(data => {
-            // console.log(data)
-            setState({stores: data})
-            //  storeList = data;
-            //  console.log(storeList)
+        .then(res => {
+            setStores(res)
+            setLoading(false)
         })
-
-    },[])
-
+        .catch(err => {
+            const errorMsg = err.message
+            console.log(errorMsg)
+        })
+        
+    }, [])
+ 
 
     return (
-        <div>
-        <CustomerNav/>
+        <>
+            <CustomerNav/>
             <div id='header'>
                 <div id='currOrderBox'>
                     <h1>Current Order</h1>
@@ -41,20 +39,15 @@ const customerHomepage = () => {
                 <div id='membershipStatusBox'>
                     <h1>Remaining Drinks</h1>
                 </div>
-
             </div>
                 
             <div id='body'>
-            <Provider store={store}>
-                <StoreDisplay storeList={state.stores}/>
-            </Provider>
-            
+            { isLoading ? 
+                (<h1> Loading... </h1>) : 
+                (<StoreDisplay storeList = {stores}/>)
+            }  
             </div>
-
-            <div >
-
-            </div>
-        </div>
+        </>
     );
 };
 

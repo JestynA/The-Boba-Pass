@@ -37,6 +37,7 @@ box-shadow:  0px -10px 5px rgb(131, 131, 131);
 
 #storeAddress{
     text-align: left;
+    font-size: 10px;
 }
 
 #storeData:hover{
@@ -47,11 +48,9 @@ box-shadow:  0px -10px 5px rgb(131, 131, 131);
 p{
     color: rgb(61, 61, 61);
     text-decoration: none;
-    width: 100%;
     text-align: right;
-    right: 100%;
     margin: 3px;
-    font-size: 1vh;
+    font-size: 10;
 }
 
 
@@ -70,8 +69,13 @@ a{
     font-weight: bold;
 }
 
-#details{
+#detailsBox{
     vertical-align: top;
     width: 10vw;
+    
+}
+
+#details{
+    font-size: 10px;
 }
 
