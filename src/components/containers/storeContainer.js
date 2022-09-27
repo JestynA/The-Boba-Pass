@@ -1,26 +1,14 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../redux/reducers/actions'
-
 import './storeContainer.css'
 
-const mapStateToProps = state => {
-    return({
-        totalStores: state.totalStores,
-        storeList: state.storeList
-    })
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addStore : (storeInfo) => dispatch(actions.addStoreCreator(storeInfo)),
-        deleteStore : (address) => dispatch(actions.deleteStoreCreator(address)),
-    }
-}
-
-const storeContainer = (props) => {
+const storeContainer = () => {
 
     let [notifyText, setNotifyText] = useState(null)
+
+    const notifyUser = (result) => {
+        setNotifyText(result)
+        setTimeout(() => setNotifyText(null), 3000)
+    }
 
     const handleAdd = () => {
         const storeInfo = {
@@ -38,29 +26,28 @@ const storeContainer = (props) => {
               },
             body : JSON.stringify(storeInfo)
         })
-        .then(res => console.log('added store to database'))
-    
-        props.addStore(storeInfo)
-        setNotifyText('added')
+        .then(notifyUser('added'))
+ 
     }
 
     const handleDelete = () => {
-        props.deleteStore(document.getElementById('delAddress').value)
-        setNotifyText('deleted')
+        const store = {
+            address : document.getElementById('delAddress').value
+        }
+        fetch('/db/deleteStore', {
+            method: 'POST',
+            headers: {
+                'Content-type' : 'Application/json'
+            },
+            body: JSON.stringify(store)
+        })
+        .then(notifyUser('deleted'))
     }
 
     return (
         <div id='storeContainer'>
-            {notifyText ? 
-                (
-                <div>
-                    Store has been {notifyText}!
-                </div>
-                )
-            
-                : null
-            }
-            <h1>Store Maker</h1>
+            {notifyText && <div> Store has been {notifyText}!</div>}
+            <h1>Add store</h1>
             <div>
                 <form onSubmit={(e) => e.preventDefault()}>
                     <input required id='storeInput' placeholder='Name'/>
@@ -84,4 +71,4 @@ const storeContainer = (props) => {
    
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(storeContainer);
+export default storeContainer;

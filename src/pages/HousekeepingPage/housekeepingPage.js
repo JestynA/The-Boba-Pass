@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import CustomerNavBar from './../../components/navbar/customerNavBar';
-import StoreEditorContainer from '../../components/containers/storeContainer';
-import DrinkEditorContainer from '../../components/containers/drinkContainer';
- 
+import StoreContainer from '../../components/containers/storeContainer';
+import DrinkContainer from '../../components/containers/drinkContainer';
+
  const housekeepingPage = () => {
     return (
         <div>
             <CustomerNavBar/>
-            <StoreEditorContainer/>        
-            <DrinkEditorContainer/>
+            <StoreContainer/>        
+            <DrinkContainer/>
         </div>
     );
  };
-
 
 export default housekeepingPage;

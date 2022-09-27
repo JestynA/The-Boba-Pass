@@ -4,20 +4,17 @@ import StoreCard from './../cards/storeCard'
 import './storeDisplay.css'
 
 
-const storeDisplay = (props) => {
+const storeDisplay = ({storeList}) => {
 
-    //get request to grab all the store elements
-    console.log('storeprops', props)
-   
-    const storeListEl = []
-   //const list = JSON.parse(JSON.stringify(props.storeList));
-//    for(const el in storeList){
-//        storeListEl.push(<StoreCard storeName={list[el].vendor_name} storeDesc={list[el].description} address={list[el].address} city={list[el].city} zip={list[el].zip} id={list[el].vendor_id} key={el}/>)
-//    }
+   const stores = storeList.map((store) => {
+    return (
+        <StoreCard store = {store} key = {store.vendor_id}/> 
+    )
+   })
 
     return (
         <div id='stores'>
-            {storeListEl}
+            {stores}
         </div>
     );
 };

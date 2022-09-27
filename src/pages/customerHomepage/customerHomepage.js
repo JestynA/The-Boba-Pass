@@ -1,35 +1,33 @@
-import React, { useEffect } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
-
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import StoreDisplay from '../../components/displays/storeDisplay';
 import CustomerNav from '../../components/navbar/customerNavBar'
-import * as actions from '../../redux/reducers/actions'
-
-
+import * as actions from '../../redux/actions'
 import './customerHomepage.css'
 
-const mapStateToProps = state => {
-    return ({
-        stores: state.storeList
-    })
-}
+const customerHomepage = () => {
 
-const mapDispatchToProps = dispatch => {
-    return {
-        setStores : () => dispatch(actions.setStoresCreator())
-    }
-}
+    
+    const [stores, setStores] = useState([])
+    const [isLoading, setLoading] = useState(false)
 
-
-
-const customerHomepage = ({setStores, stores}) => {
-    // const stores = useSelector( state => state.storeList)
-    // //let stores = props.storeList
-    // const dispatch = useDispatch()
-    const storeList = useSelector(state => state.storeList)
-    console.log('stores:', storeList)
-
-
+    useEffect(() => {
+        setLoading(true)
+        fetch('/db/getStores',{
+            method: 'GET',
+        })
+        .then(data => data.json())
+        .then(res => {
+            setStores(res)
+            setLoading(false)
+        })
+        .catch(err => {
+            const errorMsg = err.message
+            console.log(errorMsg)
+        })
+        
+    }, [])
+ 
 
     return (
         <>
@@ -44,10 +42,13 @@ const customerHomepage = ({setStores, stores}) => {
             </div>
                 
             <div id='body'>
-                    <StoreDisplay storeList = {storeList}/>
+            { isLoading ? 
+                (<h1> Loading... </h1>) : 
+                (<StoreDisplay storeList = {stores}/>)
+            }  
             </div>
         </>
     );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(customerHomepage);
+export default customerHomepage;

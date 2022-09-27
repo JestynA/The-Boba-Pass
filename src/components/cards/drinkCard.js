@@ -1,34 +1,21 @@
 import React from 'react';
-
+import { useDispatch } from 'react-redux';
 import './drinkCard.css'
+import * as actions from '../../redux/actions'
 
+const drinkCard = ({drink}) => {
 
-
-const drinkCard = (props) => {
-
-    function addToCart(){
-    const item={
-        name: props.itemName,
-        price: props.price
+    const dispatch = useDispatch()
+    const handleClick = () => {
+        dispatch(actions.addToCartCreator(drink))
     }
 
-    
-    // grab current cart array and update it with pushed in obj
-    const arr = props.cart;
-    arr.push(item);
-    
-    props.updateCart({cart: arr},
-        console.log('asdsa')
-        )
-
-    //console.log(props.cart)
-}
     return (
-        <button id='drinkButton' onClick={addToCart}>
+        <button id='drinkButton' onClick={handleClick}>
             <div id='drinkCard'>          
-                <h1 id='drinkName'>{props.itemName}</h1>
-                <h3 id='drinkDesc'>{props.itemDesc}</h3>    
-                <p id='drinkPrice'>{props.price}</p>    
+                <h1 id='drinkName'>{drink.item_name}</h1>
+                <h3 id='drinkDesc'>{drink.description}</h3>    
+                <p id='drinkPrice'>{drink.item_price}</p>    
             </div>
         </button>
     );

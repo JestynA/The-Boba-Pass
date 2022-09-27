@@ -5,10 +5,8 @@ const pool = new Pool({
     connectionString: connectionString
 })
 
-
-module.exports= {
+module.exports = {
     query: (text, params, callback) => {
-        console.log('successful query');
         return pool.query(text, params, callback);
     }
 }
