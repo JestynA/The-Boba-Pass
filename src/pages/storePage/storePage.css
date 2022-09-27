@@ -4,6 +4,7 @@ body{
 }
 #header{
     height: 55vh;
+    width: 100%;
     margin-top: 5vh;
     background-color: rgb(185, 185, 185);
     box-shadow: 0px 0px 15px;
@@ -12,6 +13,7 @@ body{
 #storePage{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 #storeImg{

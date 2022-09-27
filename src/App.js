@@ -13,7 +13,7 @@ import StorePage from  './pages/storePage/storePage';
 const App = () => {
 
     return(
-        <Router>
+        <Router >
             <Routes>
                 <Route path='/' element={<VisitorHome/>}/>
                 <Route path='/gateway' element={<AccountPage/>}/> 
